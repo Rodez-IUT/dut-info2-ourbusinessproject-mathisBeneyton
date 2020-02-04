@@ -1,21 +1,17 @@
 package ourbusinessproject;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 
 @Entity
 public class Project {
+    @Id
+    @GeneratedValue
+    private Long id;
+
     @NotEmpty
     private String title;
     private String description;
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
-
 
     public void setTitle(String title) {
         this.title = title;
@@ -31,5 +27,9 @@ public class Project {
 
     public String getDescription() {
         return description;
+    }
+
+    public Long getId() {
+        return id;
     }
 }

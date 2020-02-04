@@ -11,6 +11,8 @@ import javax.validation.constraints.Size;
 @Entity
 public class Enterprise {
 
+
+
     @NotEmpty
     private String name;
     @NotEmpty @Size (min = 10)
@@ -20,8 +22,9 @@ public class Enterprise {
     @NotEmpty @Email
     private String contactEmail;
 
+
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue
     private long Id;
 
     public void setName(String name) {
@@ -42,4 +45,24 @@ public class Enterprise {
     public void setContactEmail(String contactEmail) {
         this.contactEmail= contactEmail;
     }
+    public String getName() {
+        return name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public String getContactEmail() {
+        return contactEmail;
+    }
+
+    public long getId() {
+        return Id;
+    }
+
+    public String getContactName() {
+        return contactName;
+    }
+
 }
