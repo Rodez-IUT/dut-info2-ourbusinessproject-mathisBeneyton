@@ -17,6 +17,18 @@ public class Project {
     @NotNull @ManyToOne(cascade = CascadeType.ALL)
     private Enterprise enterprise;
 
+    public Project(String title, String description, Enterprise enterprise) {
+        this.title=title;
+        this.description=description;
+        this.enterprise=enterprise;
+    }
+
+    public Project() {
+        this.title=null;
+        this.description=null;
+        this.enterprise=null;
+    }
+
     public Enterprise getEnterprise() { return enterprise; }
 
     public void setEnterprise(Enterprise enterprise) {
