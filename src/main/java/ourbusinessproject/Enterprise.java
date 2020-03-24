@@ -5,6 +5,7 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.List;
 
 @Entity
 public class Enterprise {
@@ -20,11 +21,8 @@ public class Enterprise {
     @NotEmpty @Email
     private String contactEmail;
 
-
-
-    @OneToMany
-    private Project projects;
-
+    @OneToMany(mappedBy = "enterprise" ,cascade = CascadeType.ALL)
+    private List<Project> projects;
 
     @Id
     @GeneratedValue
@@ -68,7 +66,11 @@ public class Enterprise {
         return contactName;
     }
 
-    public Project getProjects() { return projects; }
+    public List<Project> getProjects() {
+        return projects;
+    }
 
-    public void setProjects(Project project) {this.projects = project;}
+    public void setProjects(List<Project> projects) {
+        this.projects = projects;
+    }
 }

@@ -3,6 +3,7 @@ package ourbusinessproject;
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+import java.util.List;
 
 @Entity
 public class Project {
@@ -13,12 +14,15 @@ public class Project {
     @NotEmpty
     private String title;
     private String description;
-    @NotNull @ManyToOne
+    @NotNull @ManyToOne(cascade = CascadeType.ALL)
     private Enterprise enterprise;
 
     public Enterprise getEnterprise() { return enterprise; }
 
-    public void setEnterprise(Enterprise enterprise) { this.enterprise = enterprise; }
+    public void setEnterprise(Enterprise enterprise) {
+        this.enterprise = enterprise;
+        enterprise.setProjects(List.of(this));
+    }
 
 
 
