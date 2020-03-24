@@ -13,7 +13,7 @@ public class Project {
     @NotEmpty
     private String title;
     private String description;
-    @NotNull
+    @NotNull @ManyToOne
     private Enterprise enterprise;
 
     public Enterprise getEnterprise() { return enterprise; }

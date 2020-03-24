@@ -1,11 +1,9 @@
 package ourbusinessproject;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 @Entity
@@ -21,6 +19,11 @@ public class Enterprise {
     private String contactName;
     @NotEmpty @Email
     private String contactEmail;
+
+
+
+    @OneToMany
+    private Project projects;
 
 
     @Id
@@ -65,4 +68,7 @@ public class Enterprise {
         return contactName;
     }
 
+    public Project getProjects() { return projects; }
+
+    public void setProjects(Project project) {this.projects = project;}
 }
