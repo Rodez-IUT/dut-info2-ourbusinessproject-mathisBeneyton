@@ -59,4 +59,9 @@ public class Project {
     public Long getId() {
         return id;
     }
+
+    @Override
+    public String toString() {
+        return "Title : "+ this.title + " Descritpion : "+ this.description + " Entreprise : "+this.enterprise.getName();
+    }
 }
