@@ -43,7 +43,7 @@ public class EnterpriseProjectService {
 
 
     public List<Project> findAllProjects() {
-        String query = "SELECT DISTINCT p,e  FROM Project p JOIN p.enterprise ep WHERE ep.Id = p.enterprise.Id ORDER BY p.title";
+        String query = "SELECT p FROM Project p JOIN FETCH p.enterprise e ORDER BY p.title";
         TypedQuery<Project> queryObj = entityManager.createQuery(query, Project.class);
         return queryObj.getResultList();
     }
