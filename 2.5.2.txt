@@ -1,0 +1,4 @@
+Il fait 3 requêtes : une pour recuperer les projets
+une seconde pour l'entreprise
+une troisième pour l'entreprise
+du coup on pourrais recuperer tous dans une seule requête
