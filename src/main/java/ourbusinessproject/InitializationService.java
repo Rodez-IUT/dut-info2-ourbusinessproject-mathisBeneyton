@@ -23,6 +23,7 @@ public class InitializationService {
 
     @Transactional
     public void initProjects() {
+        /* si un objet ne correspond pas aux annotations alors l'annotation transctionnal ne va sauvegarder aucun objet pour eviter qu'il y est un problème dans l'application ensuite  */
 
         enterprise1 = new Enterprise();
         enterprise1.setName("Enterprise 1");
